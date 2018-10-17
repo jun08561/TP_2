@@ -13,6 +13,8 @@ public class Scratch
 		StdOut.print("Enter your name: ");
 		String name = StdIn.readLine(); // use this for your input
 		StdOut.print("Welcome, "+name);
+		
+		
 
 
 	}
