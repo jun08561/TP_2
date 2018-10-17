@@ -17,7 +17,7 @@ public class DieTest
 		int[] init_values = new int[]
 		{ 3, 2, 1 };
 		die = new Die(init_values);
-		StdOut.println("setUp() called");
+	//	StdOut.println("setUp() called");
 
 	}
 
