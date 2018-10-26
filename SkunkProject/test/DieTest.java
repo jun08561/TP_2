@@ -97,5 +97,21 @@ public class DieTest
 
 		fail();
 	}
+	@Test
+	//this is the one successful dice test
+	public void test_dice() {
+		
+	    int[] init_values =new int[] {6,7,8};
+	    Die die2 = new Die(init_values);
+	    int[] init_values1 =new int[] {3,2,1};
+	    Die die = new Die(init_values1);
+	    Dice dice= new Dice(die, die2);
+		dice.roll();
+		int result = dice.getLastRoll();
+		assertEquals(9, result);
+		
+	}
+	
+
 
 }
