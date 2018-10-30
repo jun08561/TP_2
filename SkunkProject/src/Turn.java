@@ -12,7 +12,7 @@ public class Turn
 	public Turn() {
 		this.turnScore = 0;
 		this.lastRoll = null;
-		this.rollSequence = new ArrayList<Roll>();
+	    this.rollSequence = new ArrayList<Roll>();
 	}
 	public int getTurnScore()
 	{
@@ -29,6 +29,7 @@ public class Turn
 		rollSequence.add(this.lastRoll);
 		
 	}
+	
 	
 public void scoreTurn()
 {
