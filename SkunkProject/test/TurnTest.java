@@ -29,7 +29,7 @@ public class TurnTest
 	public void last_roll_created_in_new_Turn()
 	{  
 		Turn new_turn1 = new Turn();
-		assertNotEquals("expected a lastRoll object", null,new_turn1.getLastRoll()  );
+		assertEquals("expected a lastRoll object", null,new_turn1.getLastRoll()  );
 	}
 
 //	@Test
