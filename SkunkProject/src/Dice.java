@@ -29,7 +29,7 @@ public class Dice
 
 		this.die1 = new Die();
 		this.die2 = new Die();
-		this.roll();
+		//this.roll();
 	}
 
 	public Dice(Die die1, Die die2) // overloaded constructor
@@ -85,6 +85,7 @@ public class Dice
 	}
 	
 	public static final int NUM_TRIALS = 360;
+	private static final String dice = null;
 
 	public static void main(String[] args)
 	{
@@ -103,5 +104,25 @@ public class Dice
 		StdOut.println("Actual count: " + doubleSkunkCount);
 		StdOut.println("Expected count: " + (NUM_TRIALS / 36.0));
 	}
+	public boolean isSingleSkunk()
+	{
+		if (isDoubleSkunk() || isDeuceSkunk())
+			return false;
+		else
+			return die1.getLastRoll() == 1 || die2.getLastRoll() == 1;
+	}
 
+	public boolean isDeuceSkunk()
+	{
+
+		return die1.getLastRoll() == 1 && die2.getLastRoll() == 2
+				|| die2.getLastRoll() == 1 && die1.getLastRoll() == 2;
+	}
+
+	public boolean isDoubleSkunk()
+	{
+		return (die1.getLastRoll() == 1 && die2.getLastRoll() == 1);
+	}
+
+	
 }
