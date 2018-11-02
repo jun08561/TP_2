@@ -15,6 +15,7 @@ public class SkunkApp implements Reporter
 		{ 
 		System.out.println("Incorrect input! Please enter [Y/N]."); 
 		read = input.next(); 
+		
 		} 
 		if(read.equalsIgnoreCase("y")) 
 		{

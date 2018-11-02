@@ -42,4 +42,9 @@ public class Roll
 		return (dice.getDie1().getLastRoll() == 1 && dice.getDie2().getLastRoll() == 1);
 	}
 
+	public Object getResult() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
