@@ -9,12 +9,12 @@ public class SkunkApp implements Reporter
 		StdOut.println("Welcome to Skunk Game!");
 		
 		System.out.println("Do you want to read the instructions of the game? [Y/N]"); 
-		String read = input.next(); 
-		
+		String read = StdIn.readLine(); 
+	
 		while(!read.equalsIgnoreCase("y") && !read.equalsIgnoreCase("n"))
 		{ 
 		System.out.println("Incorrect input! Please enter [Y/N]."); 
-		read = input.next(); 
+		read = StdIn.readLine(); 
 		
 		} 
 		if(read.equalsIgnoreCase("y")) 
@@ -46,7 +46,7 @@ public class SkunkApp implements Reporter
 	    Turn turn = new Turn(); 
 		while(true)
 	{
-	    StdOut.print("Do you want to roll? n or y (Enter==>y)");
+	    StdOut.println("Do you want to roll? n or y (Enter==>y)");
 			
 		String answer = StdIn.readLine();
 		if (!answer.equals("n"))
