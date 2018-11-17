@@ -1,24 +1,22 @@
 
 public class Player 
 {
-		private final String name;
-	    private int totalScore;
+		private final String Username;
+	    
 
 	    Player(String name){
-	        this.name = name;
+	        this.Username = name;
+	    }
+	    
+	    public void setName(String name) {
+	    	name = Username;
 	    }
 
-	    String getName(){
-	        return name;
+	    public String getName(){
+	        return Username;
 	    }
 
-	    int getTotalScore(){
-	        return totalScore;
-	    }
-
-	    void setTotalScore(int score){
-	        totalScore += score;
-	    }
+	
 
 	}
 
