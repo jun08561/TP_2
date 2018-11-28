@@ -1,22 +1,20 @@
 
 public class Player 
 {
-		private final String Username;
+		
+		
+		public String playername;
+
+		public String getPlayername() {
+			return playername;
+		}
+
+		public void setPlayername(String playername) {
+			this.playername = playername;
+		}
+		
 	    
-
-	    Player(String name){
-	        this.Username = name;
-	    }
-	    
-	    public void setName(String name) {
-	    	name = Username;
-	    }
-
-	    public String getName(){
-	        return Username;
-	    }
-
-	
+	   
 
 	}
 
