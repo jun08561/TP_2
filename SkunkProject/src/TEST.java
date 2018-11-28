@@ -43,7 +43,7 @@ public class TEST {
 				StdOut.print("How many players? ");
 				numberOfPlayers = StdIn.readInt();
 			
-		        boolean gamestart = true; 
+//		        boolean gamestart = true; 
 		        int turnScore =0;
 		        int roundScore = 0;
 	for(int playerNumber=0; playerNumber<numberOfPlayers; playerNumber++) {
@@ -54,32 +54,34 @@ public class TEST {
 			Turn turn = new Turn(); 
 			Round round = new Round();
 		    StdOut.println("Next player is: "+playerNames);
-			    StdOut.println("Do you want to roll? n or y (Enter==>y)");	
-				String answer = StdIn.readLine();
-				while(true) {
-				if (!answer.equals("n"))
-				{
-					turn.rollAgain();
-					turn.scoreTurn();
-					StdOut.println("You rolled a "+turn.getLastRoll().getDice().getLastRoll());
-					 turnScore = turn.getTurnScore();
+		
+			while(true) {
+			StdOut.println("Do you want to roll? n or y (Enter==>y)");	
+			String answer = StdIn.readLine();
+			if (!answer.equals("n"))
+			{
+			   turn.rollAgain();
+			   turn.scoreTurn();
+			   StdOut.println("You rolled a "+turn.getLastRoll().getDice().getLastRoll());
+			   turnScore = turn.getTurnScore();
 //					 roundScore += turnScore;
-					StdOut.println("Your scored is"+turnScore+ "for this turn");	
-					StdOut.println("Your score of this Round is: "+roundScore);
-					if (turn.ends())
-					{
-						break;
-					}
-			     }else {
-					StdOut.println("You declined to roll.");
-					turnScore = turn.getTurnScore();
-//					roundScore += turnScore;
-					StdOut.println("Your scored is"+turnScore+ " for this turn");
-					StdOut.println("Your score of this Round is: "+roundScore);
-					break;			
+			   StdOut.println("Your scored is"+turnScore+ "for this turn");	
+			  StdOut.println("Your score of this Round is: "+roundScore);
+				if (turn.ends())
+				{
+					break;
+				}
+			    }else {
+				StdOut.println("You declined to roll.");
+				turnScore = turn.getTurnScore();
+//				roundScore += turnScore;
+				StdOut.println("Your scored is"+turnScore+ " for this turn");
+				StdOut.println("Your score of this Round is: "+roundScore);
+				break;			
 			     }
-				if(roundScore>=100) {
-					gamestart =false;
+			roundScore += turnScore;
+			if(roundScore>=100) {
+					break;
 				
 			}
 				}
