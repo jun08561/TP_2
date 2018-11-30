@@ -80,11 +80,12 @@ public class SkunkApp {
 				StdOut.println("Your score of this Round is: "+roundScore);
 				break;			
 			     }
+		}
 			roundScore += turnScore;
 			if(roundScore>=100) {
 					break;
 				
-			}
+			
 				}
 			}
 			
