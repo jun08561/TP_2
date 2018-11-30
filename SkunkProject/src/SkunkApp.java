@@ -44,10 +44,12 @@ public class SkunkApp {
 				numberOfPlayers = StdIn.readInt();
 			
 
-				
+				boolean gamestart = true;
 		       int turnScore =0;
 		       int roundScore = 0;
+	 	
 	for(int playerNumber=0; playerNumber<numberOfPlayers; playerNumber++) {
+			
 //			
 		    StdOut.print("Enter name of player " + (playerNumber + 1) + ": ");
 		    Scanner reader =  new Scanner(System.in);
@@ -65,33 +67,37 @@ public class SkunkApp {
 			   turn.scoreTurn();
 			   StdOut.println("You rolled a "+turn.getLastRoll().getDice().getLastRoll());
 			   turnScore = turn.getTurnScore();
-//					 roundScore += turnScore;
-			   StdOut.println("Your scored is"+turnScore+ "for this turn");	
-			  StdOut.println("Your score of this Round is: "+roundScore);
+			   StdOut.println("Your score is"+turnScore+ "for this turn");	
 				if (turn.ends())
 				{
 					break;
 				}
+				if(turnScore>=100) {
+					break;
+			}
 			    }else {
 				StdOut.println("You declined to roll.");
-				turnScore = turn.getTurnScore();
-//				roundScore += turnScore;
-				StdOut.println("Your scored is"+turnScore+ " for this turn");
-				StdOut.println("Your score of this Round is: "+roundScore);
 				break;			
 			     }
-		}
 			roundScore += turnScore;
+		//	StdOut.println("Your score of this Round is: "+roundScore);
 			if(roundScore>=100) {
-					break;
-				
-			
-				}
+				gamestart=false;
+	
 			}
-			
-					
-				
+			//StdOut.println("Your score of this Round is: "+roundScore);
+		}
+			if(roundScore>=100) {
+				break;
+		
 			}
+			StdOut.println("Your score of this Round is: "+roundScore);
+		
+			}
+	
+	//}
+
+	}
 			
 				
 		
