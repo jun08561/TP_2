@@ -43,9 +43,10 @@ public class TEST {
 				StdOut.print("How many players? ");
 				numberOfPlayers = StdIn.readInt();
 			
-//		        boolean gamestart = true; 
-		        int turnScore =0;
-		        int roundScore = 0;
+
+				
+		       int turnScore =0;
+		       int roundScore = 0;
 	for(int playerNumber=0; playerNumber<numberOfPlayers; playerNumber++) {
 //			
 		    StdOut.print("Enter name of player " + (playerNumber + 1) + ": ");
