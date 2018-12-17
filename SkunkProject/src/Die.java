@@ -8,7 +8,7 @@ public class Die
 
 	public Die()
 	{
-		this.roll();
+//		this.roll();
 	}
 
 	public Die(int[] predictable_rolls)
@@ -49,7 +49,7 @@ public class Die
 	@Override
 	public String toString() // this OVERRIDES the default Object.toString()
 	{
-		return "Die: " + this.getLastRoll();
+		return ":"+this.getLastRoll();
 	}
 
 }

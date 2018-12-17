@@ -16,8 +16,8 @@ public class Dice
 	// Convention: put at top
 
 	private int lastRoll;
-	private Die die1;
-	private Die die2;
+	private static Die die1;
+	private static Die die2;
 
 	// Constructors (object initializers) also can be declared anywhere
 	// Convention: after instance fields/variables
@@ -84,45 +84,45 @@ public class Dice
 		this.die2 = d;
 	}
 	
-	public static final int NUM_TRIALS = 360;
-	private static final String dice = null;
-
-	public static void main(String[] args)
-	{
-		Dice dice1 = new Dice();
-		int doubleSkunkCount = 0;
-
-		for (int i = 0; i < NUM_TRIALS; i++)
-		{
-			dice1.roll();
-			StdOut.println(dice1);
-
-			if (dice1.getLastRoll() == 2)
-				doubleSkunkCount++;
-		}
-
-		StdOut.println("Actual count: " + doubleSkunkCount);
-		StdOut.println("Expected count: " + (NUM_TRIALS / 36.0));
-	}
-	public boolean isSingleSkunk()
-	{
-		if (isDoubleSkunk() || isDeuceSkunk())
-			return false;
-		else
-			return die1.getLastRoll() == 1 || die2.getLastRoll() == 1;
-	}
-
-	public boolean isDeuceSkunk()
-	{
-
-		return die1.getLastRoll() == 1 && die2.getLastRoll() == 2
-				|| die2.getLastRoll() == 1 && die1.getLastRoll() == 2;
-	}
-
-	public boolean isDoubleSkunk()
-	{
-		return (die1.getLastRoll() == 1 && die2.getLastRoll() == 1);
-	}
+//	public static final int NUM_TRIALS = 360;
+//	private static final String dice = null;
+//
+//	public static void main(String[] args)
+//	{
+//		Dice dice1 = new Dice();
+//		int doubleSkunkCount = 0;
+//
+//		for (int i = 0; i < NUM_TRIALS; i++)
+//		{
+//			dice1.roll();
+//			StdOut.println(dice1);
+//
+//			if (dice1.getLastRoll() == 2)
+//				doubleSkunkCount++;
+//		}
+//
+//		StdOut.println("Actual count: " + doubleSkunkCount);
+//		StdOut.println("Expected count: " + (NUM_TRIALS / 36.0));
+//	}
+//	public boolean isSingleSkunk()
+//	{
+//		if (isDoubleSkunk() || isDeuceSkunk())
+//			return false;
+//		else
+//			return die1.getLastRoll() == 1 || die2.getLastRoll() == 1;
+//	}
+//
+//	public boolean isDeuceSkunk()
+//	{
+//
+//		return die1.getLastRoll() == 1 && die2.getLastRoll() == 2
+//				|| die2.getLastRoll() == 1 && die1.getLastRoll() == 2;
+//	}
+//
+//	public boolean isDoubleSkunk()
+//	{
+//		return (die1.getLastRoll() == 1 && die2.getLastRoll() == 1);
+//	}
 
 	
 }

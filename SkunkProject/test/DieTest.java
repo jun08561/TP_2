@@ -1,117 +1,297 @@
 import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.experimental.categories.Categories.ExcludeCategory;
 
-import edu.princeton.cs.introcs.StdOut;
+
+import org.junit.After;
+
+import org.junit.Before;
+
+import org.junit.Test;
+
+
+
+//this is JUnit test case for the Die class
+
+
 
 public class DieTest
+
 {
+
 	private Die die;
 
+	private int[] initValues;
+
+
+
 	@Before
+
 	public void setUp() throws Exception
+
 	{
-		int[] init_values = new int[]
-		{ 3, 2, 1 };
-		die = new Die(init_values);
-	//	StdOut.println("setUp() called");
+
+		this.initValues = new int[]
+
+		{ 1, 2, 3 };
+
+
+
+		this.die = new Die(initValues);
 
 	}
+
+
 
 	@After
+
 	public void tearDown() throws Exception
+
 	{
+
 	}
 
+
+
 	@Test
-	public void test_initialization_of_predictable_die()
+
+	public void test_Init_PredictableDie()
+
 	{
+
+
+
 		die.roll();
+
 		int value = die.getLastRoll();
 
-		assertEquals("first value not 3", 3, value);
+
+
+		assertEquals("First Value Not 3", 1, value);
+
+
 
 	}
 
-	@Test
-	public void test_roll_2_of_predictable_die()
-	{
-		die.roll();
-		assertEquals("first value not 3", 3, die.getLastRoll());
-		die.roll();
-		assertEquals("second value not 2", 2, die.getLastRoll());
-	}
+
 
 	@Test
-	public void test_roll_3_of_predictable_die()
+
+	public void test_Predictable_Roll_2()
+
 	{
+
+
+
 		die.roll();
+
+		assertEquals("First value Not 3", 1, die.getLastRoll());
+
+
+
 		die.roll();
-		die.roll();
-		assertEquals("third value not 1", 1, die.getLastRoll());
+
+		assertEquals("First value Not 3", 2, die.getLastRoll());
+
+
+
 	}
 
-	@Test
-	public void test_roll_4_of_predictable_die_with_3_rolls()
-	{
-		die.roll();
-		die.roll();
-		die.roll();
-		die.roll();
-		assertEquals("fourth value not wrapping back to first value 3", 3, die.getLastRoll());
-	}
+
 
 	@Test
-	public void test_roll_5_of_predictable_die_with_3_rolls()
+
+	public void test_Predictable_Roll_3()
+
 	{
+
+
+
 		die.roll();
+
 		die.roll();
+
 		die.roll();
-		die.roll();
-		die.roll();
-		assertEquals("fourth value not wrapping back to first value 3", 2, die.getLastRoll());
+
+		assertEquals("First value Not 1", 3, die.getLastRoll());
+
+
+
 	}
+
+
+
+	@Test
+
+	public void test_Predictable_Roll_4_with_3_values()
+
+	{
+
+
+
+		die.roll();
+
+		die.roll();
+
+		die.roll();
+
+		die.roll();
+
+		assertEquals("First value Not going back to first value 3", 1, die.getLastRoll());
+
+
+
+	}
+
+
+
+	@Test
+
+	public void test_Predictable_Roll_5_with_3_values()
+
+	{
+
+
+
+		die.roll();
+
+		die.roll();
+
+		die.roll();
+
+		die.roll();
+
+		die.roll();
+
+		assertEquals("First value Not going back to second value 2", 2, die.getLastRoll());
+
+
+
+	}
+
+
 
 	@Test(expected = RuntimeException.class)
-	public void test_null_initial_int_array()
+
+	public void test_Null_initial_int_array()
+
 	{
-		Die die1 = new Die(null);
-		die1.roll();
+
+		Die die = new Die(null);
+
+		die.roll();
+
 	}
+
+
+
+	private static int indexOf(int[] x, int lastRoll)
+
+	{
+
+		for (int i = 0; i < x.length; i++)
+
+			if (x[i] == lastRoll)
+
+				return i;
+
+		return -1;
+
+	}
+
+
+
+	@Test
+
+	public void test_index_0()
+
+	{
+
+		die.roll();
+
+		assertEquals("Index of first roll is not 0", 0, indexOf(initValues, (die.getLastRoll())));
+
+	}
+
+
+
+	@Test
+
+	public void test_index_1()
+
+	{
+
+		die.roll();
+
+		die.roll();
+
+		assertEquals("Index of first roll is not 1", 1, indexOf(initValues, (die.getLastRoll())));
+
+	}
+
+
+
+	@Test
+
+	public void test_index_2()
+
+	{
+
+		die.roll();
+
+		die.roll();
+
+		die.roll();
+
+		assertEquals("Index of first roll is not 2", 2, indexOf(initValues, (die.getLastRoll())));
+
+	}
+
+
+
+	@Test
+
+	public void test_toString()
+
+	{
+
+		die.toString();
+
+		assertEquals("Die: ", "Die: ");
+
+	}
+
+	
 
 	@Test()
+
 	public void test_null_initial_int_array2()
+
 	{
+
 		try
+
 		{
+
 			Die die1 = new Die(null);
+
 			die1.roll();
-		}
-		catch (RuntimeException rexp)
-		{
-			return;
+
 		}
 
+		catch (RuntimeException rexp)
+
+		{
+
+			return;
+
+		}
+
+
+
 		fail();
+
 	}
-	@Test
-	//this is the one successful dice test
-	public void test_dice() {
-		
-	    int[] init_values =new int[] {6,7,8};
-	    Die die2 = new Die(init_values);
-	    int[] init_values1 =new int[] {3,2,1};
-	    Die die = new Die(init_values1);
-	    Dice dice= new Dice(die, die2);
-		dice.roll();
-		int result = dice.getLastRoll();
-		assertEquals(9, result);
-		
-	}
-	
+
 
 
 }

@@ -1,22 +1,88 @@
 import static org.junit.Assert.*;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.experimental.categories.Categories.ExcludeCategory;
 
-import edu.princeton.cs.introcs.StdOut;
+
+import org.junit.After;
+
+import org.junit.Before;
+
+import org.junit.Test;
+
+
+
 public class PlayerTest
+
 {
 
-	@Before
-	public void setUp() throws Exception{
-		
-	}
+
+
+	private Player player;
+
 	
-	@Test
-	public void test()
+
+	@Before
+
+	public void setUp() throws Exception
+
 	{
-		fail("Not yest Implemented");
+
+		this.player = new Player(null);
+
+	}
+
+
+
+	@After
+
+	public void tearDown() throws Exception
+
+	{
+
+	}
+
+	
+
+	@Test
+
+	public void test_createPlayer()
+
+	{
+
+
+
+		this.player = new Player("Test Player Name");
+
+
+
+		String TestPlayerName = this.player.getPlayername();
+
+
+
+		assertEquals("Player's name is not Test Player Name", TestPlayerName, "Test Player Name");
+
+	}
+
+	
+
+	@Test
+
+	public void test_playerName()
+
+	{
+
+		String TestPlayerName = "Test Player Name";
+
+
+
+		this.player.setPlayername(TestPlayerName);
+
+		
+
+		String playerName = this.player.getPlayername();
+
+
+
+		assertEquals("Player's name is not Test Player Name", playerName, "Test Player Name");
+
 	}
 }

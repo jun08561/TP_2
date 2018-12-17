@@ -2,6 +2,8 @@ import java.util.ArrayList;
 
 import org.omg.PortableServer.THREAD_POLICY_ID;
 
+import edu.princeton.cs.introcs.StdOut;
+
 public class Turn
 {
 
@@ -34,18 +36,26 @@ public class Turn
 public void scoreTurn()
 {
 	if(this.getLastRoll().isDoubleSkunk()) {
+		StdOut.println("You rolled a DoubleSkunk");
 		turnScore = 0;
 		
 		
 	}else if (this.getLastRoll().isDeuceSkunk()) {
+		StdOut.println("You rolled a DeuceSkunk");
 		turnScore = 0;
 	}
 	else if (this.getLastRoll().isSingleSkunk()) {
+		StdOut.println("You rolled a SingleSkunk");
 		turnScore = 0;
 	}
 	else {
 		turnScore+= lastRoll.getDice().getLastRoll();
 	}
+
+}
+
+public String getDiceValue() {
+	return ":"+ lastRoll.getDiceValue();
 }
 public boolean ends()
 {

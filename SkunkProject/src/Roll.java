@@ -2,6 +2,8 @@
 public class Roll
 {
 	private Dice dice;
+	private Die die1;
+	private Die die2;
 
 	public Roll()
 	{
@@ -13,7 +15,9 @@ public class Roll
 	{
 		return this.dice;
 	}
-
+    public String getDiceValue() {
+    	return "Die 1"+this.dice.getDie1()+"\nDie2" +this.dice.getDie2();
+    }
 	public void setDice(Die die1, Die die2) // convenient for testing with
 											// predictable Die
 	{
@@ -42,9 +46,9 @@ public class Roll
 		return (dice.getDie1().getLastRoll() == 1 && dice.getDie2().getLastRoll() == 1);
 	}
 
-	public Object getResult() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	public Object getResult() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 }

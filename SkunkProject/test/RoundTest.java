@@ -1,26 +1,55 @@
 import static org.junit.Assert.*;
 
+
+
+import org.junit.After;
+
 import org.junit.Before;
+
 import org.junit.Test;
 
-public class RoundTest {
+
+
+public class RoundTest
+
+{
+
+	private Round round;
+
+
 
 	@Before
+
 	public void setUp() throws Exception
+
 	{
-		
-	}
-	@Test
-	public void create_new_test() {
-		Round new_round = new Round();
+
+		this.round = new Round();
 
 	}
-	@Test
-	public void round_score_0_in_new_round()
+
+
+
+	@After
+
+	public void tearDown() throws Exception
+
 	{
-		Round new_round = new Round();
-		assertEquals("init_round_score_not_0", 0, new_round.getRoundscore());
-		
+
+	}
+
+
+	@Test
+
+	public void testRoundScore()
+
+	{
+
+
+
+		int turnScore = this.round.getRoundscore();
+
+		assertEquals("init_turn_score_not_0", turnScore, 0 );
 
 	}
 
